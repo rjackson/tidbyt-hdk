@@ -46,7 +46,7 @@ int display_initialize() {
   HUB75_I2S_CFG::i2s_pins pins = {R1,   G1,   BL1,  R2,   G2,  BL2, CH_A,
                                   CH_B, CH_C, CH_D, CH_E, LAT, OE,  CLK};
 
-#ifdef TIDBYT_GEN2
+#ifdef TIDBYT_GEN2 || TIDBYT_RJCUSTOM
   bool invert_clock_phase = false;
 #else
   bool invert_clock_phase = true;
@@ -56,7 +56,7 @@ int display_initialize() {
                          32,                      // height
                          1,                       // chain length
                          pins,                    // pin mapping
-                         HUB75_I2S_CFG::FM6126A,  // driver chip
+                         HUB75_I2S_CFG::SHIFTREG,  // driver chip
                          true,                    // double-buffering
                          HUB75_I2S_CFG::HZ_10M,   // clock speed
                          1,                       // latch blanking
@@ -66,7 +66,7 @@ int display_initialize() {
   _matrix = new MatrixPanel_I2S_DMA(mxconfig);
 
   // Set brightness and clear the screen.
-  _matrix->setBrightness8(DISPLAY_DEFAULT_BRIGHTNESS);
+  _matrix->setBrightness8(128);
   if (!_matrix->begin()) {
     return 1;
   }

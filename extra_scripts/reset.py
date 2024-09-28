@@ -4,6 +4,7 @@ import os.path
 import requests
 
 PRODUCTION_VERSION = {
+    "rj-custom": "v10/35369", # doesnt flash, but necessary for `upload` of custom firmware somehow?
     "tidbyt": "v10/35369",
     "tidbyt-gen2": "v11/35369"
 }[env["PIOENV"]]

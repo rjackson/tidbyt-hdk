@@ -11,9 +11,10 @@ def main() -> None:
 
     env.Append(
         CCFLAGS=[
-            f"-DTIDBYT_WIFI_SSID='\"{tidbyt_wifi_ssid}\"'",
-            f"-DTIDBYT_WIFI_PASSWORD='\"{tidbyt_wifi_password}\"'",
-            f"-DTIDBYT_REMOTE_URL='\"{tidbyt_remote_url}\"'",
+            f"-DTIDBYT_WIFI_SSID=\\\"{tidbyt_wifi_ssid}\\\"",
+            f"-DTIDBYT_WIFI_PASSWORD=\\\"{tidbyt_wifi_password}\\\"",
+            f"-DTIDBYT_REMOTE_URL=\\\"{tidbyt_remote_url}\\\"",
+
         ],
         CPPDEFINES=[
             "-DNO_GFX",
